@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { connect } from 'react-redux'
 
 class App extends Component {
   state = {
@@ -17,7 +18,7 @@ class App extends Component {
               name: event.target.value
             })
           }
-          value={this.state.name}
+          value={this.props.name}
         />
         <button
           onClick={() => {
@@ -34,5 +35,13 @@ class App extends Component {
     );
   }
 }
+// determines what will be the name of the prop
+const mapStateToProps = (state) => {
+  return {
+    name: state.name
+  }
+}
 
-export default App;
+const ConnectedApp = connect(mapStateToProps)(App)
+
+export default ConnectedApp;
