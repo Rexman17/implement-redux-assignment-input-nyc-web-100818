@@ -24,7 +24,7 @@ class App extends Component {
           onClick={() => {
             this.setState({
               name: "",
-              attendees: [...this.state.attendees, this.state.name]
+              attendees: [...this.state.attendees, this.props.name]
             });
           }}
         >
