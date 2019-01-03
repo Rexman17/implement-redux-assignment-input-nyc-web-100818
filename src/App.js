@@ -14,9 +14,9 @@ class App extends Component {
         <input
           type="text"
           onChange={event =>
-            this.setState({
-              name: event.target.value
-            })
+            {this.props.dispatch({
+              type:"UPDATE_NAME",payload:event.target.value
+            })}
           }
           value={this.props.name}
         />
